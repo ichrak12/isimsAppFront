@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">ISIMS GUIDE</a>
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+  	<li id="menuhome" class="nav-item active">
+    <a class="nav-link" (click)="setActive('menuhome')" [routerLink]="['/home']" >Actualités</a>
+	</li>
+	<li id="menuCalendar" class="nav-item">
+		<a class="nav-link" (click)="setActive('menuCalendar')" [routerLink]="['/calendar']" >Calendar</a>
+	</li>
+	<li id="menuReclamation" class="nav-item">
+		<a class="nav-link" (click)="setActive('menuReclamation')" [routerLink]="['/reclamation']" >Reclamation</a>
+	</li>
+	<li id="menuContact" class="nav-item">
+		<a class="nav-link" (click)="setActive('menuContact')" [routerLink]="['/contact']" >Contact</a>
+	</li>
+</ul>
+<ul class="navbar-nav ml-auto">
+	<form class="form-inline">
+		<input class="form-control mr-sm-2" id="myInput" type="text" placeholder="search..">
+	</form>
+</ul>
+</nav>

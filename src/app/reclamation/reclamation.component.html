@@ -1,0 +1,118 @@
+ <div class="container">
+	<h1>Reclamation</h1>
+	<hr/>
+	<p>Formulaire de demande d'information</p>
+	<form  name="addReclamationForm" (submit)="addReclamation()" #addReclamationForm="ngForm">
+		<div class="row">
+		  <div class="input-group mb-3">
+		    <div class="input-group-prepend col-2" style="padding: 0px">
+		      <span class="input-group-text" style="width: 100%">Les services *</span>
+		    </div>
+		    <select class="form-control col-10" style="padding: 0px" required="required"
+		   [(ngModel)]="reclamationModel.service" name="service" #service="ngModel">
+			    <option value="Les services">Les services</option>
+			    <option value="Service direction">Service direction</option>
+			    <option value="Service étudiant">Service étudiant</option>
+			    <option value="Service technique">Service technique</option>
+			  </select>
+		  </div>
+		<div *ngIf="service.errors && (service.dirty || service.touched)" class="alert alert-danger col-12">
+		  	<div [hidden]="!service.errors.required">
+		  		<span class="glyphicon glyphicon-exclamation-sign"> </span> &nbsp; Service is required
+		  	 </div>
+		  </div>
+		</div>
+		<div class="row">
+		  <div class="input-group mb-3">
+		    <div class="input-group-prepend col-2" style="padding: 0px">
+		      <span class="input-group-text" style="width: 100%">Nom *</span>
+		    </div>
+		    <input type="text" class="form-control" required="required" 
+		    [(ngModel)]="reclamationModel.nom" name="nom" #nom="ngModel">
+		  </div>
+		  <div *ngIf="nom.errors && (nom.dirty || nom.touched)" class=" alert alert-danger col-12">
+		  	<div [hidden]="!nom.errors.required">
+		  		<span class="glyphicon glyphicon-exclamation-sign"> </span> &nbsp; Nom is required
+		  	</div>
+		 </div>
+		</div>
+		<div class="row">
+		  <div class="input-group mb-3">
+		    <div class="input-group-prepend col-2" style="padding: 0px">
+		      <span class="input-group-text" style="width: 100%">Prénom *</span>
+		    </div>
+		    <input type="text" class="form-control" required="required"
+		    [(ngModel)]="reclamationModel.prenom" name="prenom" #prenom="ngModel">
+		  </div>
+		  <div *ngIf="prenom.errors && (prenom.dirty || prenom.touched)" class=" alert alert-danger col-12">
+		  	<div [hidden]="!prenom.errors.required">
+		  		<span class="glyphicon glyphicon-exclamation-sign"> </span> &nbsp; Prenom is required
+		  		</div>
+		  	</div>
+		  </div>
+		  
+		  <div class="row">
+		  <div class="input-group mb-3">
+		    <div class="input-group-prepend col-2" style="padding: 0px">
+		      <span class="input-group-text" style="width: 100%">Email *</span>
+		    </div>
+		    <input type="text" class="form-control" required="required"
+		    [(ngModel)]="reclamationModel.email" name="email" #email="ngModel">
+		  </div>
+		  <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger col-12">
+		  	<div [hidden]="!email.errors.required">
+		  		<span class="glyphicon glyphicon-exclamation-sign"> </span> &nbsp; Email is required
+		  		</div>
+		  	</div>
+		</div>
+		<div class="row">
+		  <div class="input-group mb-3">
+		    <div class="input-group-prepend col-2" style="padding: 0px">
+		      <span class="input-group-text" style="width: 100%">Message *</span>
+		    </div>
+		    <textarea class="form-control" rows="5" required="required"
+		    [(ngModel)]="reclamationModel.message" name="message" #message="ngModel"></textarea>
+		  </div>
+		  <div *ngIf="message.errors && (message.dirty || message.touched)" class="alert alert-danger col-12">
+		  	<div [hidden]="!message.errors.required">
+		  		<span class="glyphicon glyphicon-exclamation-sign"> </span> &nbsp; Message is required
+		  		</div>
+		  	</div>
+		</div>
+		<div class="row">
+		  <div class="input-group mb-3">
+		    <div class="input-group-prepend col-2" style="padding: 0px">
+		      <span class="input-group-text" style="width: 100%">Photo *</span>
+		    </div>
+		    <input class="form-control" type="file" accept="image/*" required="required" [(ngModel)]="reclamationModel.photo" name="photo" #photo="ngModel"/>
+		  </div>
+		  <div *ngIf="photo.errors && (photo.dirty || photo.touched)" class="alert alert-danger col-12">
+		  	<div [hidden]="!photo.errors.required">
+		  		<span class="glyphicon glyphicon-exclamation-sign"> </span> &nbsp; Photo is required
+		  		</div>
+		  	</div>
+		</div>
+
+		<div class="row">
+		  <div class="input-group mb-3">
+		    <image-upload 
+		    [max]="1"
+		    [buttonCaption]="'Select Photo'"
+		    [dropBoxMessage]="''"
+		    [extensions]="['jpeg','jpg','gif','png']"
+		    (isPending)="disableSendButton(Sevent)"
+		    (onFileUploadFinish)="imageUploaded(Sevent)"
+		    (onRemove)="imageRemoved(Sevent)"
+		    >
+		    </image-upload>
+		    <!--<img src="{{file_src}}" width="auto" height="180px">-->
+		  </div>
+		</div>
+		<div class ="row"> 
+			<div class=col-2><button type="submit" class="btn btn-outline-success"
+				 id="btn-save" [disabled]="!addReclamationForm.form.valid">Envoyer</button>
+			</div>
+<button type="submit" class="btn btn-outline-secondary" (click)="goBack()">Annuler</button>
+</div>
+	</form>
+</div>
