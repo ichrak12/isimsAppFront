@@ -7,6 +7,8 @@ import { ReclamationComponent } from  './reclamation/reclamation.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { ContactComponent } from './contact/contact.component';
 import { EditComponent } from  './edit/edit.component';
+import { SeconnecterComponent } from  './seconnecter/seconnecter.component';
+import { FormationsComponent } from './formations/formations.component';
 
 const routes: Routes = [
 { path:'', redirectTo: 'home', pathMatch:'full'},
@@ -14,7 +16,9 @@ const routes: Routes = [
 { path:'reclamation', component:ReclamationComponent},
 { path:'edit/:id', component:EditComponent},
 { path:'calendar', component:CalendarComponent},
-{ path:'contact', component:ContactComponent}
+{ path:'contact', component:ContactComponent},
+{ path:'seconnecter', component:SeconnecterComponent},
+{ path:'formations', component:FormationsComponent}
 ];
 
 @NgModule({

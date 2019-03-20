@@ -5,21 +5,34 @@
   <!-- Links -->
   <ul class="navbar-nav">
   	<li id="menuhome" class="nav-item active">
-    <a class="nav-link" (click)="setActive('menuhome')" [routerLink]="['/home']" >Actualités</a>
+    <a class="nav-link" (click)="setActive('menuhome')" [routerLink]="['/home']" >Nouveautés</a>
 	</li>
 	<li id="menuCalendar" class="nav-item">
-		<a class="nav-link" (click)="setActive('menuCalendar')" [routerLink]="['/calendar']" >Calendar</a>
+		<a class="nav-link" (click)="setActive('menuCalendar')" [routerLink]="['/calendar']" >Calendrier</a>
 	</li>
+	<li id="menuFormations" class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" (click)="setActive('menuFormations')" [routerLink]="['/formations']" id="navbardrop" data-toggle="dropdown">
+        Formation
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="/formations/#licence">Licence</a>
+        <a class="dropdown-item" href="/formations/#master">Master</a>
+      </div>
+    </li>
 	<li id="menuReclamation" class="nav-item">
-		<a class="nav-link" (click)="setActive('menuReclamation')" [routerLink]="['/reclamation']" >Reclamation</a>
+		<a class="nav-link" (click)="setActive('menuReclamation')" [routerLink]="['/reclamation']" >Service</a>
 	</li>
+	
 	<li id="menuContact" class="nav-item">
 		<a class="nav-link" (click)="setActive('menuContact')" [routerLink]="['/contact']" >Contact</a>
 	</li>
 </ul>
 <ul class="navbar-nav ml-auto">
 	<form class="form-inline">
-		<input class="form-control mr-sm-2" id="myInput" type="text" placeholder="search..">
+		<input class="form-control mr-sm-2" id="myInput" type="text" placeholder="Rechercher..">
 	</form>
+	<li id="menuSeconnecter" class="nav-item">
+		<a class="nav-link" (click)="setActive('menuSeconnecter')" [routerLink]="['/seconnecter']" >Se connecter</a>
+	</li>
 </ul>
 </nav>

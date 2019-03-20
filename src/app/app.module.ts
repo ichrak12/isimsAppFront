@@ -13,9 +13,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { ContactComponent } from './contact/contact.component';
 import { ImageUploadModule } from 'angular2-image-upload';
 import { ReclamationService } from './services/reclamation.service';
+import { MessageService } from './services/message.service';
+
 import { HttpModule,Headers,RequestOptions } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FileSelectDirective } from "ng2-file-upload";
+import { SeconnecterComponent } from './seconnecter/seconnecter.component';
+import { FormationsComponent } from './formations/formations.component';
 //import { CustomMaterialModule } from "./reclamation/material.module";
 @NgModule({
   declarations: [
@@ -26,7 +30,9 @@ import { FileSelectDirective } from "ng2-file-upload";
     EditComponent,
     CalendarComponent,
     ContactComponent,
-    FileSelectDirective
+    FileSelectDirective,
+    SeconnecterComponent,
+    FormationsComponent
   ],
   imports: [
     NgbModule,
@@ -40,7 +46,7 @@ import { FileSelectDirective } from "ng2-file-upload";
     BrowserAnimationsModule
     //CustomMaterialModule
   ],
-  providers: [ReclamationService],
+  providers: [ReclamationService , MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

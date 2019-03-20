@@ -18,14 +18,27 @@ options : any;
   }
 
   addReclamation(info) {
-  var data = JSON.stringify(info);
-  console.log(data);
-  
-  return this.http.post(this.server+"addreclamation", data, this.options).pipe(map(res => res.json()));
+    var data = JSON.stringify(info);
+    console.log(data);
+    return this.http.post(this.server+"addreclamation", data, this.options).pipe(map(res => res.json()));
   //return this.http.get(this.server+"addreclamation").pipe(map(res => res.json()));
-  
   }
-  /*uploadFile(data: FormData): Observable {
-    return this.http.post(this.server+'upload/photo', data);
-  }*/
+
+  showAllReclamations(){
+    return this.http.get(this.server+"reclamations").pipe(map(res=>res.json()));
+  }
+
+  showReclamation(id){
+    return this.http.get(this.server+"select_reclamation/"+id).pipe(map(res => res.json()));
+  }
+
+  editReclamation(info) {
+    var data = JSON.stringify(info);
+    return this.http.post(this.server+"editreclamation", data, this.options).pipe(map(res => res.json()));
+  }
+
+  deleteReclamation(id){
+    return this.http.get(this.server+"delete_reclamation/"+id).pipe(map(res => res.json()));
+  }
 }
+ 

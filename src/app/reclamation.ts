@@ -1,5 +1,6 @@
 export class Reclamation{
-    public service:string; 
+  public id:number;
+  public service:string;
 	public nom:string;
 	public prenom:string;
 	public email:string;
